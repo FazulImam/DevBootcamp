@@ -9,6 +9,7 @@ dotenv.config({ path: "./config/config.env" });
 const connect = require('./config/db');
 const errorHandler = require('./middlewares/error');
 const bootcamp = require('./routes/bootcamps');
+const auth = require('./routes/auth');
 
 const app = express();
 
@@ -23,6 +24,7 @@ const port = process.env.PORT || 3000;
 
 // Mount Routers
 app.use('/api/v1/bootcamps',bootcamp)
+app.use('/api/v1/auth',auth)
 app.use(errorHandler)
 
 const server = app.listen(port, () => {
