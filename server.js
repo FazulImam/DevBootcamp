@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require('morgan')
 const colors = require("colors")
+const cookieParser = require("cookie-parser");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -17,6 +18,8 @@ const app = express();
 app.use(express.json());
 // Dev logging middleware
 app.use(morgan('tiny'));
+
+app.use(cookieParser())
 // Database Connection
 connect();
 

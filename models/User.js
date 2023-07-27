@@ -47,4 +47,9 @@ UserSchema.methods.getSignedJwtToken = function () {
   });
 };
 
+// Match Password
+UserSchema.methods.matchPassword = function(password) {
+  return bcryptjs.compare(password,this.password);
+}
+
 module.exports = mongoose.model("User", UserSchema);
